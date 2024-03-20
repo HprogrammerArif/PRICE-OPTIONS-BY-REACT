@@ -16,7 +16,7 @@ const NavBar = () => {
 
   return (
     <div>
-      <nav>
+      <nav className="bg-yellow-400 p-6">
         <div className="md:hidden text-3xl " onClick={() => setOpen(!open)}>
           {open === true ? (
             <MdOutlineClose></MdOutlineClose>
@@ -24,7 +24,17 @@ const NavBar = () => {
             <RiMenu2Line className=""></RiMenu2Line>
           )}
         </div>
-        <ul className="md:flex">
+
+       {/* 
+       option 1: <ul className={`md:flex absolute duration-2000
+                  ${open? '': 'hidden'}
+                 bg-yellow-400 px-6 shadow-2xl`}>
+       
+       */}
+
+        <ul className={`md:flex absolute md:static duration-1000
+         ${open? 'top-16': '-top-60'}
+        bg-yellow-400 px-6`}>
           {routes.map((route) => (
             <Link key={route.id} route={route}></Link>
           ))}
